@@ -1,0 +1,1039 @@
+$blue: #1eb6fe;
+$green: #32ffc7;
+$yallow: #ffd220;
+$red: #ff0e0d;
+$lineColorLight: #0dcaf0;
+$lineColorDeep: #2b5ca3;
+$modalBackground: #061f3e;
+$work: #32ffc7;
+$standard: #1dd0fd;
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  background: url(../img/bg.jpg);
+  background-size: 100% 100%;
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  // padding-left: 0 !important;
+}
+
+#loader {
+  position: absolute;
+  left: 45%;
+  top: 45%;
+  z-index: 1;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.selfFontSize {
+  font-size: 1rem;
+}
+
+.borderYallow {
+  border-left: 6px solid $yallow;
+}
+.borderGreen {
+  border-left: 6px solid $green;
+}
+.borderBlue {
+  border-left: 6px solid $blue;
+}
+
+.mainUp {
+  border-bottom: 1px solid $lineColorDeep;
+  .up {
+    margin-top: 15px;
+    padding-bottom: 10px;
+
+    .upLeft {
+      width: 25%;
+      color: #ffffff;
+      background: url(../img/titBg.png) no-repeat;
+
+      .upLeftItem {
+        position: relative;
+        height: 100%;
+        width: 245px;
+
+        .summaryBtn {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          border: none;
+          font-size: 25px;
+          width: max-content;
+
+          &:hover {
+            color: $lineColorLight;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+    .upMiddle {
+      width: 50%;
+      text-align: center;
+
+      .upMiddleItem {
+        height: 100%;
+        position: relative;
+        display: inline-block;
+        padding: 0.75rem 1.5rem 1rem;
+        font-size: 2rem;
+        font-weight: bold;
+        width: 75%;
+        background: linear-gradient(to top, #50ebf8, #2b5ca3);
+        color: transparent;
+        background-clip: text;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+          // background-color: #0e2143;
+          background-image: linear-gradient(to top, #10254b, #081732);
+          transform: scaleY(1.3) perspective(1.5em) rotateX(-5deg);
+          transform-origin: center bottom;
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+      }
+    }
+    .upRight {
+      width: 25%;
+      text-align: end;
+
+      #currentTime {
+        color: #ffffff;
+      }
+      .usefulResource {
+        border: none;
+      }
+      .dropdown-menu {
+        background-color: $lineColorLight;
+
+        .dropdown-item {
+          &:hover {
+            background-color: $lineColorLight;
+            font-size: 1.2rem;
+            font-weight: bold;
+          }
+        }
+      }
+      .logoutBtn {
+        margin-left: 10px;
+        border-radius: 25px;
+      }
+    }
+  }
+}
+
+.mainDown {
+  color: #ffffff;
+
+  .downLeft,
+  .downRight {
+    width: 25%;
+  }
+  .downMiddle {
+    width: 50%;
+    margin: 0 20px;
+
+    #stateMap {
+      height: 50vh;
+      filter: invert(100%) hue-rotate(180deg) brightness(150%) contrast(90%);
+
+      .statePopup {
+        .leaflet-popup-content-wrapper {
+          background-color: $lineColorLight;
+        }
+        .leaflet-popup-tip-container {
+          .leaflet-popup-tip {
+            background-color: $lineColorLight;
+          }
+        }
+      }
+      .leaflet-control-container {
+        .leaflet-control-search {
+          border: unset;
+          background: unset;
+
+          .search-input {
+            border: unset;
+            background-color: $lineColorDeep;
+            margin: 14px 0 14px 4px;
+            padding: 0 0 0 10px;
+            caret-color: #ffffff;
+
+            &:focus-visible {
+              outline: unset;
+            }
+            &::placeholder {
+              color: #ffffff;
+            }
+          }
+          .search-button {
+            background: url("../img/s_ico8.png") no-repeat 12px 11px
+              rgba(43, 92, 163, 0.7);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+          }
+        }
+        .search-exp {
+          background-color: $lineColorDeep;
+          border: unset;
+          border-radius: 25px;
+        }
+      }
+
+      .carInfoBtn {
+        z-index: 500;
+        position: absolute;
+        right: 10px;
+        top: 70px;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        padding: 0;
+        background-color: rgba(43, 92, 163, 0.7);
+        border: unset;
+      }
+    }
+  }
+
+  .downBoard {
+    background-color: rgba(0, 0, 0, 0.3);
+    margin-bottom: 1rem;
+
+    .boardTitle {
+      border-bottom: 1px solid $lineColorLight;
+      padding: 15px 25px;
+
+      .title {
+        padding-left: 5px;
+        line-height: 20px;
+        font-size: 1.2rem;
+      }
+    }
+    .boardContent {
+      padding: 15px 25px;
+
+      // 今日運單數量
+      .boardItem {
+        margin-bottom: 1rem;
+
+        .titleAndCount {
+          justify-content: space-between;
+          padding-bottom: 10px;
+
+          .normalCount {
+            color: $blue;
+          }
+          .snapCount {
+            color: $yallow;
+          }
+          .abnormalCount {
+            color: $red;
+          }
+        }
+      }
+      .bar {
+        background-color: rgba(255, 255, 255, 0.5);
+        height: 10px;
+        width: 100%;
+
+        span {
+          display: block;
+          height: 10px;
+          // background-color: $blue;
+          // width: 80%;
+        }
+      }
+      .count {
+        color: $lineColorLight;
+        padding-right: 5px;
+      }
+
+      .onTheWay {
+        color: $yallow;
+
+        .circle {
+          border: 3px solid $yallow;
+        }
+      }
+      .numOfTrip {
+        color: $green;
+
+        .circle {
+          border: 3px solid $green;
+        }
+      }
+      .orderToday {
+        color: $blue;
+
+        .circle {
+          border: 3px solid $blue;
+        }
+      }
+      .circle {
+        border-radius: 50%;
+        padding: 50%;
+        position: relative;
+
+        span {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 1.2rem;
+        }
+      }
+      .text {
+        margin-left: 9px;
+        margin-top: 10px;
+      }
+
+      .StateBox {
+        .StateTitle {
+          border-bottom: 1px dashed #404040;
+
+          .titleItem {
+            width: 33%;
+            height: 37px;
+            line-height: 37px;
+            color: #ffffff;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            &:nth-child(1) {
+              width: 38%;
+            }
+            &:nth-child(2) {
+              width: 28%;
+            }
+            &:nth-child(3) {
+              width: 34%;
+            }
+          }
+        }
+        #rowCarousel {
+          height: 228px;
+          overflow: hidden;
+
+          .carouselUl {
+            margin: 0;
+            padding: 0;
+
+            .rowInner {
+              border-bottom: 1px dashed #404040;
+
+              .rowItem {
+                width: 33%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                align-self: center;
+                white-space: nowrap;
+
+                &:nth-child(1) {
+                  width: 38%;
+                }
+                &:nth-child(2) {
+                  width: 28%;
+                }
+                &:nth-child(3) {
+                  width: 34%;
+                }
+              }
+              .percent {
+                width: 100%;
+                align-items: center;
+
+                .percentBar {
+                  margin-right: 7px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .total {
+      color: $lineColorLight;
+
+      .totalNum {
+        font-size: 3.5rem;
+        font-weight: bold;
+      }
+      .totalUnit {
+        font-size: 1.2rem;
+        align-self: flex-end;
+        padding: 15px 10px;
+      }
+    }
+  }
+  .middleDownBoard {
+    .boardTitle {
+      padding: 15px 25px;
+
+      .title {
+        padding-left: 5px;
+        font-size: 20px;
+        line-height: 20px;
+
+        #currentMonth {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.filterbg {
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 182, 254, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 998;
+  display: none;
+}
+.summary {
+  width: 80%;
+  height: 86vh;
+  background: #061f3e;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  border-radius: 8px;
+  transform: translate(-50%, -50%);
+  display: none;
+
+  .summaryClose {
+    display: block;
+    width: 44px;
+    height: 44px;
+    background: url(../img/s_ico3.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: -22px;
+    right: -22px;
+    transition: 0.3s;
+    display: none;
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+  .summaryBox {
+    height: 100%;
+
+    .top {
+      height: 45%;
+
+      #driversChart {
+        width: 33.3%;
+        height: 100%;
+      }
+      #carsChart {
+        width: 33.4%;
+      }
+      #sendsChart {
+        width: 33.3%;
+      }
+      .highcharts-data-labels{
+        .highcharts-data-label-color-0{
+          .nowork{
+            color: $modalBackground !important;
+            fill: $modalBackground !important;
+          }
+        }
+      }
+    }
+    .todaySendNum,
+    .monthSendTotal {
+      color: $blue;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    .todaySendNum {
+      width: 35%;
+    }
+    .monthSendTotal {
+      width: 65%;
+    }
+    .bottom {
+      height: 45%;
+
+      #todaySendChart,
+      #monthSendChart {
+        text-align: -webkit-center;
+      }
+      #todaySendChart {
+        width: 35%;
+      }
+      #monthSendChart {
+        width: 65%;
+      }
+    }
+  }
+}
+.carInfo {
+  width: 80%;
+  height: 86vh;
+  background: #061f3e;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  border-radius: 8px;
+  transform: translate(-50%, -50%);
+  display: none;
+
+  .carClose {
+    display: block;
+    width: 44px;
+    height: 44px;
+    background: url(../img/s_ico3.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: -22px;
+    right: -22px;
+    transition: 0.3s;
+    display: none;
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+  .infoBox {
+    height: 100%;
+
+    .infoTop {
+      height: 15.4%;
+
+      .infoTit {
+        height: 40%;
+        text-align: center;
+        position: relative;
+        top: 30%;
+        color: $blue;
+      }
+    }
+    .infoMain {
+      height: 76%;
+      width: 90%;
+      margin: 0 auto;
+
+      .infoLeft {
+        width: 22.4%;
+        height: 100%;
+        box-sizing: border-box;
+        padding-top: 54px;
+        padding-right: 10px;
+        position: relative;
+        border-right: 1px solid #13284d;
+
+        .topSearch {
+          width: 80%;
+          height: 36px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          box-sizing: border-box;
+          padding: 0 18px;
+          background: rgba(0, 222, 255, 0.2);
+          border-radius: 18px;
+
+          form {
+            height: 20px;
+            padding: 8px 10px 8px 30px;
+            position: relative;
+          }
+          button {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: url(../img/s_ico8.png);
+            background-size: 100%;
+            position: absolute;
+            top: 8px;
+            left: 0;
+            border: unset;
+          }
+          input {
+            display: block;
+            width: 100%;
+            height: 20px;
+            line-height: 20px;
+            background: rgba(0, 222, 255, 0);
+            caret-color: #00ddfe;
+            border: unset;
+
+            &::placeholder {
+              color: #00ddfe;
+            }
+          }
+        }
+        .carState {
+          height: 100%;
+          padding-top: 36px;
+          box-sizing: border-box;
+          position: relative;
+
+          .carStateTitle {
+            width: 80%;
+            height: 35px;
+            line-height: 35px;
+            border-bottom: 1px dashed #404040;
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+            padding: 0 8px;
+
+            span {
+              width: 50%;
+              height: 35px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              color: #808080;
+
+              &:last-child {
+                text-align: right;
+              }
+            }
+          }
+          .stateUl {
+            height: 100%;
+            overflow: hidden;
+            padding: 0;
+
+            li {
+              width: 80%;
+              height: 35px;
+              line-height: 35px;
+              border-bottom: 1px dashed #404040;
+              box-sizing: border-box;
+              padding: 0 8px;
+
+              p,
+              span {
+                float: left;
+                white-space: nowrap;
+                height: 35px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                color: #00deff;
+              }
+              p {
+                width: 70%;
+              }
+              span {
+                width: 30%;
+                text-align: right;
+              }
+              span.work {
+                color: #32ffc7;
+              }
+              span.nowork {
+                color: #ffd220;
+              }
+            }
+          }
+        }
+      }
+      .infoRight {
+        width: 77.6%;
+        height: 100%;
+        box-sizing: border-box;
+        border-left: 1px solid #030303;
+
+        .rightWp {
+          width: 94%;
+          margin: 0 auto;
+          height: 100%;
+
+          .carIntro {
+            height: 30%;
+            box-sizing: border-box;
+            border-bottom: 1px solid #13284d;
+            justify-content: space-between;
+
+            .introBox {
+              width: 72%;
+              margin-left: 5%;
+              background: url(../img/infoBg.png) no-repeat;
+              background-size: 100% 100%;
+
+              .carImg {
+                width: 12%;
+                height: 100%;
+                margin: 0 8%;
+                position: relative;
+
+                img {
+                  max-width: 100%;
+                  max-height: 64%;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  border-radius: 6px;
+                  transform: translate(-50%, -50%);
+                }
+              }
+              .carText {
+                width: 64%;
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                align-items: center;
+
+                .info {
+                  height: 28px;
+                  line-height: 28px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  color: #ffffff;
+                  box-sizing: border-box;
+                  padding: 0 10px;
+                }
+              }
+            }
+            .driver {
+              width: 18%;
+              padding-top: 10px;
+              align-self: center;
+
+              .photo {
+                width: 100px;
+                height: 100px;
+                margin: 0 auto;
+                border-radius: 100%;
+                overflow: hidden;
+
+                img {
+                  width: 100%;
+                }
+              }
+              p {
+                text-align: center;
+                color: #00deff;
+                font-size: 16px;
+                line-height: 40px;
+              }
+            }
+          }
+          .timetable {
+            height: 70%;
+            box-sizing: border-box;
+            padding-top: 40px;
+            border-top: 1px solid #030303;
+            position: relative;
+
+            .work {
+              color: $work;
+            }
+            .standard {
+              color: $standard;
+            }
+
+            .topTool {
+              height: 28px;
+              padding-top: 12px;
+              position: absolute;
+              width: 100%;
+              left: 0;
+              top: 0;
+              justify-content: space-between;
+
+              .tableExplain {
+                height: 14px;
+                padding-top: 14px;
+
+                .itemExplain {
+                  height: 14px;
+                  margin-right: 40px;
+
+                  span {
+                    float: left;
+                    width: 14px;
+                    height: 14px;
+                    margin-right: 6px;
+                  }
+                  p {
+                    float: left;
+                    color: #fff;
+                    line-height: 14px;
+                  }
+                }
+              }
+              .topBtns {
+                height: 22px;
+                padding-top: 4px;
+
+                a {
+                  float: left;
+                  height: 26px;
+                  padding: 0 14px;
+                  border: 1px solid #00deff;
+                  border-radius: 14px;
+                  margin: 0 10px;
+                  line-height: 26px;
+                  color: #00deff;
+                  font-size: 12px;
+                  text-decoration: unset;
+
+                  &:hover {
+                    background: #00deff;
+                    color: #ffffff;
+                    transition: 0.3s;
+                  }
+                }
+              }
+            }
+            .tiemWp {
+              height: 100%;
+              box-sizing: border-box;
+              padding: 30px 20% 0 0;
+              position: relative;
+
+              .totalTable {
+                box-sizing: border-box;
+                height: 100%;
+                width: 20%;
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding-top: 40px;
+
+                .totalTit {
+                  height: 20px;
+                  width: 100%;
+                  position: absolute;
+                  top: 16px;
+                  right: 0;
+
+                  span {
+                    float: left;
+                    width: 50%;
+                    height: 100%;
+                    color: #fff;
+                    text-align: center;
+                    font-size: 12px;
+                    line-height: 20px;
+                  }
+                }
+                .totalData {
+                  height: 100%;
+                  box-sizing: border-box;
+                  padding-bottom: 1px;
+                  display: grid;
+                  align-content: space-between;
+
+                  .totalItem {
+                    color: #ffffff;
+                    display: flex;
+                    // padding-top: 15px;
+
+                    span {
+                      width: 50%;
+                      text-align: center;
+                    }
+                  }
+                  // .costomTp1 {
+                  //   padding-top: 25px;
+                  // }
+                  // .costomTp2 {
+                  //   padding-top: 27px;
+                  // }
+                  // .costomTp3 {
+                  //   padding-top: 30px;
+                  // }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#canvas {
+  z-index: -1;
+}
+
+@media screen and (max-width: 1919px) and (min-width: 1680px) {
+  .selfFontSize {
+    font-size: 1rem;
+  }
+
+  .mainDown {
+    .downBoard {
+      margin-bottom: 0.75rem;
+
+      .boardTitle {
+        padding: 10px 25px;
+
+        .title {
+          padding-left: 5px;
+          font-size: 1.3rem;
+          line-height: 20px;
+        }
+      }
+      .boardContent {
+        padding: 6px 25px;
+
+        .boardItem {
+          margin-bottom: 0.75rem;
+
+          .titleAndCount {
+            padding-bottom: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1679px) and (min-width: 1440px) {
+  .selfFontSize {
+    font-size: 1rem;
+  }
+
+  .mainDown {
+    .downBoard {
+      margin-bottom: 0.5rem;
+
+      .boardTitle {
+        padding: 6px 25px;
+
+        .title {
+          padding-left: 4px;
+          font-size: 1.2rem;
+          line-height: 18px;
+        }
+      }
+      .boardContent {
+        padding: 6px 25px;
+
+        .boardItem {
+          margin-bottom: 0.5rem;
+
+          .titleAndCount {
+            padding-bottom: 0.25rem;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1439px) and (min-width: 1366px) {
+  .selfFontSize {
+    font-size: 0.75rem;
+  }
+
+  .mainDown {
+    .downBoard {
+      margin-bottom: 0.25rem;
+
+      .boardTitle {
+        padding: 4px 25px;
+
+        .title {
+          padding-left: 3px;
+          font-size: 1rem;
+          line-height: 18px;
+        }
+      }
+      .boardContent {
+        padding: 4px 25px;
+
+        .boardItem {
+          margin-bottom: 0.25rem;
+
+          .titleAndCount {
+            padding-bottom: 0.25rem;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1365px) {
+  .selfFontSize {
+    font-size: 0.5rem;
+    font-size: 1rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .mainDown {
+    .downBoard {
+      margin-bottom: 0.5rem;
+
+      .boardTitle {
+        padding: 6px 25px;
+
+        .title {
+          padding-left: 2px;
+          line-height: 18px;
+          font-size: 1.1rem;
+        }
+      }
+      .boardContent {
+        padding: 4px 25px;
+
+        .boardItem {
+          margin-bottom: 0.25rem;
+
+          .titleAndCount {
+            padding-bottom: 0.25rem;
+          }
+        }
+      }
+    }
+  }
+}

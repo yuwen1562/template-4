@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/afterLogin.css" />
+    <link rel="stylesheet" href="../module/leaflet/leaflet.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../module/animsition.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../module/bootstrap-5.2.2-dist/css/bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../module/leaflet-search-master/dist/leaflet-search.min.css"
+    />
+    <script src="../module/bootstrap-5.2.2-dist/js/bootstrap.js"></script>
+    <script src="../module/bootstrap-5.2.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../module/jquery-3.6.1.min.js"></script>
+    <script src="../module/leaflet/leaflet.js"></script>
+    <script src="../module/moment-with-locales.min.js"></script>
+    <script src="../module/animsition.min.js"></script>
+    <script src="../module/highcharts-10.3.2/code/highcharts.js"></script>
+    <script src="../module/leaflet-search-master/dist/leaflet-search.min.js"></script>
+    <title>EME 戰情看板-4</title>
+  </head>
+  <body>
+    <div id="loader"></div>
+    <div>
+      <div class="mainUp animsition mb-4">
+        <div class="up d-flex mx-5">
+          <div class="upLeft">
+            <div class="upLeftItem">
+              <button type="button" class="btn btn-outline-info summaryBtn">
+                物流匯總看板
+              </button>
+            </div>
+          </div>
+          <div class="upMiddle">
+            <div class="upMiddleItem">EME 戰情看板-4</div>
+          </div>
+          <div class="upRight">
+            <div id="currentTime"></div>
+            <div class="d-flex justify-content-end">
+              <div class="btn-group" role="group">
+                <button
+                  type="button"
+                  class="btn btn-outline-info dropdown-toggle usefulResource"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img src="../img/s_ico1.png" />
+                  可用資源
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">精選模板</a></li>
+                  <li><a class="dropdown-item" href="#">外部導入</a></li>
+                </ul>
+              </div>
+              <a
+                role="button"
+                class="animsition-link btn btn-outline-info logoutBtn"
+                href="./index.html"
+                >登出</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mainDown d-flex mx-5 animsition">
+        <div class="downLeft">
+          <!-- 今日運單數量 -->
+          <div class="downBoard">
+            <div class="boardTitle">
+              <div class="title borderYallow">今日運單數量</div>
+            </div>
+            <div class="boardContent">
+              <div class="boardItem">
+                <div class="titleAndCount d-flex">
+                  <div class="barTitle selfFontSize">正常單</div>
+                  <div class="normalCount selfFontSize"></div>
+                </div>
+                <div class="normalBar bar">
+                  <span></span>
+                </div>
+                <div class="normalPercent selfFontSize"></div>
+              </div>
+              <div class="boardItem">
+                <div class="titleAndCount d-flex">
+                  <div class="barTitle selfFontSize">臨時單</div>
+                  <div class="snapCount selfFontSize"></div>
+                </div>
+                <div class="snapBar bar">
+                  <span></span>
+                </div>
+                <div class="snapPercent selfFontSize"></div>
+              </div>
+              <div class="boardItem">
+                <div class="titleAndCount d-flex">
+                  <div class="barTitle selfFontSize">異常單</div>
+                  <div class="abnormalCount selfFontSize"></div>
+                </div>
+                <div class="abnormalBar bar">
+                  <span></span>
+                </div>
+                <div class="abnormalPercent selfFontSize"></div>
+              </div>
+            </div>
+          </div>
+          <div class="downBoard">
+            <div class="boardTitle">
+              <div class="title borderGreen">各階段平均用時統計</div>
+            </div>
+            <div class="boardContent">
+              <div class="d-flex">
+                <div class="w-50 selfFontSize">下單...配送</div>
+                <div class="w-50 d-flex">
+                  <div class="orderWithCarCount count selfFontSize"></div>
+                  <div class="orderWithCarUnit selfFontSize"></div>
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="w-50 selfFontSize">配車...裝貨</div>
+                <div class="w-50 d-flex">
+                  <div class="carWithLoadCount count selfFontSize"></div>
+                  <div class="carWithLoadUnit selfFontSize"></div>
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="w-50 selfFontSize">到場卸貨</div>
+                <div class="w-50 d-flex">
+                  <div class="unloadCount count selfFontSize"></div>
+                  <div class="unloadUnit selfFontSize"></div>
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="w-50 selfFontSize">裝回收器具</div>
+                <div class="w-50 d-flex">
+                  <div class="loadRecoveryCount count selfFontSize"></div>
+                  <div class="loadRecoveryUnit selfFontSize"></div>
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="w-50 selfFontSize">卸回收器具</div>
+                <div class="w-50 d-flex">
+                  <div class="unloadRecoveryCount count selfFontSize"></div>
+                  <div class="unloadRecoveryUnit selfFontSize"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="downBoard">
+            <div class="boardTitle">
+              <div class="title borderBlue">人員信息</div>
+            </div>
+            <div class="boardContent d-flex">
+              <div class="w-50">
+                <div class="d-flex">
+                  <div class="selfFontSize">主管：</div>
+                  <div class="principalCount count selfFontSize"></div>
+                </div>
+                <div class="d-flex">
+                  <div class="selfFontSize">警衛：</div>
+                  <div class="guardCount count selfFontSize"></div>
+                </div>
+                <div class="d-flex">
+                  <div class="selfFontSize">派單員：</div>
+                  <div class="dispatchCount count selfFontSize"></div>
+                </div>
+                <div class="d-flex">
+                  <div class="selfFontSize">財務：</div>
+                  <div class="financeCount count selfFontSize"></div>
+                </div>
+              </div>
+              <div class="w-50">
+                <div class="d-flex">
+                  <div class="selfFontSize">司機：</div>
+                  <div class="driverCount count selfFontSize"></div>
+                </div>
+                <div class="d-flex">
+                  <div class="selfFontSize">器具中心：</div>
+                  <div class="toolCenterCount count selfFontSize"></div>
+                </div>
+                <div class="d-flex">
+                  <div class="selfFontSize">售後卸載：</div>
+                  <div class="uninstallCount count selfFontSize"></div>
+                </div>
+                <div class="d-flex">
+                  <div class="selfFontSize">售後回收：</div>
+                  <div class="recycleCount count selfFontSize"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="downMiddle">
+          <div id="stateMap">
+            <button class="btn btn-outline-info carInfoBtn">
+              <img src="../img/s_ico9.png" />
+            </button>
+          </div>
+          <!-- 月運單量統計圖 -->
+          <div class="middleDownBoard mb-3">
+            <div class="boardTitle">
+              <div class="title borderBlue">
+                月運單量統計圖<span id="currentMonth"></span>
+              </div>
+            </div>
+            <div id="downColumnChart"></div>
+          </div>
+        </div>
+        <div class="downRight">
+          <div class="downBoard mb-3">
+            <div class="boardTitle">
+              <div class="title borderYallow">總計運單數</div>
+            </div>
+            <div class="boardContent d-flex total">
+              <div class="totalNum" total=""></div>
+              <div class="totalUnit">單</div>
+            </div>
+          </div>
+          <div class="downBoard mb-3">
+            <div class="boardTitle">
+              <div class="title borderGreen">基本信息</div>
+            </div>
+            <div class="boardContent d-flex justify-content-between">
+              <div class="onTheWay">
+                <div class="circle">
+                  <span></span>
+                </div>
+                <div class="text" total="">在途車輛</div>
+              </div>
+              <div class="numOfTrip">
+                <div class="circle">
+                  <span></span>
+                </div>
+                <div class="text" total="">出車次數</div>
+              </div>
+              <div class="orderToday">
+                <div class="circle">
+                  <span></span>
+                </div>
+                <div class="text" total="">今日訂單</div>
+              </div>
+            </div>
+          </div>
+          <div class="downBoard mb-3">
+            <div class="boardTitle">
+              <div class="title borderGreen">運單狀態</div>
+            </div>
+            <div class="boardContent">
+              <div class="StateBox">
+                <div class="StateTitle d-flex">
+                  <div class="titleItem">訂單編號</div>
+                  <div class="titleItem">使用時間</div>
+                  <div class="titleItem">滿載率</div>
+                </div>
+                <div id="rowCarousel">
+                  <ul class="carouselUl">
+                    <li class="d-none">
+                      <div class="rowInner d-flex py-2">
+                        <div class="orderNum rowItem"></div>
+                        <div class="usageTime rowItem"></div>
+                        <div class="rowItem">
+                          <div class="percent d-flex">
+                            <div class="percentBar bar">
+                              <span></span>
+                            </div>
+                            <div class="percentNum"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="filterbg"></div>
+    <div class="summary">
+      <a href="javascript:;" class="summaryClose"></a>
+      <div class="summaryBox">
+        <div class="top d-flex">
+          <div id="driversChart"></div>
+          <div id="carsChart"></div>
+          <div id="sendsChart"></div>
+        </div>
+        <div class="d-flex">
+          <div class="todaySendNum">今日各廠運單</div>
+          <div class="monthSendTotal">本月運單總計</div>
+        </div>
+        <div class="bottom d-flex">
+          <div id="todaySendChart"></div>
+          <div id="monthSendChart"></div>
+        </div>
+      </div>
+    </div>
+    <div class="carInfo">
+      <a href="javascript:;" class="carClose"></a>
+      <div class="infoBox">
+        <div class="infoTop">
+          <h3 class="infoTit">車輛信息</h3>
+        </div>
+        <div class="infoMain d-flex">
+          <div class="infoLeft">
+            <div class="topSearch">
+              <form>
+                <button></button>
+                <input type="text" name="" placeholder="請輸入車牌號碼" />
+              </form>
+            </div>
+            <div class="carState">
+              <div class="carStateTitle d-flex">
+                <span class="d-block">車牌號碼</span>
+                <span>狀態</span>
+              </div>
+              <ul class="stateUl">
+                <li>
+                  <p>ABC-5634</p>
+                  <span class="work">工作</span>
+                </li>
+                <li>
+                  <p>ABC-5634</p>
+                  <span class="nowork">休息</span>
+                </li>
+                <li>
+                  <p>ABC-5634</p>
+                  <span class="work">工作</span>
+                </li>
+                <li>
+                  <p>ABC-5634</p>
+                  <span class="nowork">休息</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="infoRight">
+            <div class="rightWp">
+              <div class="carIntro d-flex">
+                <div class="introBox d-flex">
+                  <div class="carImg">
+                    <img src="../img/car.jpg" />
+                  </div>
+                  <div class="carText d-flex">
+                    <div class="w-50">
+                      <div class="info">車輛類型：大車</div>
+                      <div class="info">本週工作時長：34.45小時</div>
+                      <div class="info">車牌號碼：ABC-6344</div>
+                    </div>
+                    <div class="w-50">
+                      <div class="info">統計時段：2022-12-12至2022-12-13</div>
+                      <div class="info">可載容量：20.0萬</div>
+                      <div class="info">
+                        當前狀態：<span class="color-green">工作</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="driver">
+                  <div class="photo">
+                    <img src="../img/photo.jpg" />
+                  </div>
+                  <p>司機：李斯霖</p>
+                </div>
+              </div>
+              <div class="timetable">
+                <div class="topTool d-flex">
+                  <div class="tableExplain d-flex">
+                    <div class="itemExplain">
+                      <span class="work"></span>
+                      <p>司機工作時間</p>
+                    </div>
+                    <div class="itemExplain">
+                      <span class="standard"></span>
+                      <p>標準白晚班時間</p>
+                    </div>
+                  </div>
+                  <div class="topBtns">
+                    <a href="javascript:;" class="prevWeek">上一週</a>
+                    <a href="javascript:;" class="nextWeek">下一週</a>
+                  </div>
+                </div>
+                <div class="tiemWp">
+                  <div id="timeChart"></div>
+                  <div class="totalTable">
+                    <div class="totalTit">
+                      <span>總用時/天</span>
+                      <span>單總數/天</span>
+                    </div>
+                    <div class="totalData">
+                      <div class="totalItem">
+                        <span>0.00</span>
+                        <span>0</span>
+                      </div>
+                      <div class="totalItem costomTp1">
+                        <span>0.00</span>
+                        <span>0</span>
+                      </div>
+                      <div class="totalItem costomTp1">
+                        <span>0.00</span>
+                        <span>0</span>
+                      </div>
+                      <div class="totalItem costomTp2">
+                        <span>0.00</span>
+                        <span>0</span>
+                      </div>
+                      <div class="totalItem costomTp2">
+                        <span>0.00</span>
+                        <span>0</span>
+                      </div>
+                      <div class="totalItem costomTp3">
+                        <span>0.00</span>
+                        <span>0</span>
+                      </div>
+                      <div class="totalItem costomTp3">
+                        <span>0.00</span>
+                        <span>0</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <canvas id="canvas" style="position: absolute; top: 0; left: 0"></canvas>
+  </body>
+  <script src="../js/fackData.js"></script>
+  <script src="../js/afterLogin.js"></script>
+</html>
