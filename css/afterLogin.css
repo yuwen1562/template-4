@@ -27,17 +27,21 @@ li {
   width: 120px;
   height: 120px;
   animation: spin 2s linear infinite;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
 }
 
 @keyframes spin {
   0% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   100% {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
+
 /* Safari */
 @-webkit-keyframes spin {
   0% {
@@ -47,6 +51,7 @@ li {
     -webkit-transform: rotate(360deg);
   }
 }
+
 .selfFontSize {
   font-size: 1rem;
 }
@@ -66,39 +71,47 @@ li {
 .mainUp {
   border-bottom: 1px solid #2b5ca3;
 }
+
 .mainUp .up {
   margin-top: 15px;
   padding-bottom: 10px;
 }
+
 .mainUp .up .upLeft {
   width: 25%;
   color: #ffffff;
   background: url(../img/titBg.png) no-repeat;
 }
+
 .mainUp .up .upLeft .upLeftItem {
   position: relative;
   height: 100%;
   width: 245px;
 }
+
 .mainUp .up .upLeft .upLeftItem .summaryBtn {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   border: none;
   font-size: 25px;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
+
 .mainUp .up .upLeft .upLeftItem .summaryBtn:hover {
   color: #0dcaf0;
   background-color: transparent;
 }
+
 .mainUp .up .upMiddle {
   width: 50%;
   text-align: center;
 }
+
 .mainUp .up .upMiddle .upMiddleItem {
   height: 100%;
   position: relative;
@@ -107,11 +120,12 @@ li {
   font-size: 2rem;
   font-weight: bold;
   width: 75%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#50ebf8), to(#2b5ca3));
   background: linear-gradient(to top, #50ebf8, #2b5ca3);
   color: transparent;
-  -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
 }
+
 .mainUp .up .upMiddle .upMiddleItem::before {
   content: "";
   position: absolute;
@@ -120,30 +134,39 @@ li {
   bottom: 0;
   left: 0;
   z-index: -1;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#10254b), to(#081732));
   background-image: linear-gradient(to top, #10254b, #081732);
-  transform: scaleY(1.3) perspective(1.5em) rotateX(-5deg);
-  transform-origin: center bottom;
+  -webkit-transform: scaleY(1.3) perspective(1.5em) rotateX(-5deg);
+          transform: scaleY(1.3) perspective(1.5em) rotateX(-5deg);
+  -webkit-transform-origin: center bottom;
+          transform-origin: center bottom;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
 .mainUp .up .upRight {
   width: 25%;
   text-align: end;
 }
+
 .mainUp .up .upRight #currentTime {
   color: #ffffff;
 }
+
 .mainUp .up .upRight .usefulResource {
   border: none;
 }
+
 .mainUp .up .upRight .dropdown-menu {
   background-color: #0dcaf0;
 }
+
 .mainUp .up .upRight .dropdown-menu .dropdown-item:hover {
   background-color: #0dcaf0;
   font-size: 1.2rem;
   font-weight: bold;
 }
+
 .mainUp .up .upRight .logoutBtn {
   margin-left: 10px;
   border-radius: 25px;
@@ -152,28 +175,36 @@ li {
 .mainDown {
   color: #ffffff;
 }
+
 .mainDown .downLeft,
 .mainDown .downRight {
   width: 25%;
 }
+
 .mainDown .downMiddle {
   width: 50%;
   margin: 0 20px;
 }
+
 .mainDown .downMiddle #stateMap {
   height: 50vh;
-  filter: invert(100%) hue-rotate(180deg) brightness(150%) contrast(90%);
+  -webkit-filter: invert(100%) hue-rotate(180deg) brightness(150%) contrast(90%);
+          filter: invert(100%) hue-rotate(180deg) brightness(150%) contrast(90%);
 }
+
 .mainDown .downMiddle #stateMap .statePopup .leaflet-popup-content-wrapper {
   background-color: #0dcaf0;
 }
+
 .mainDown .downMiddle #stateMap .statePopup .leaflet-popup-tip-container .leaflet-popup-tip {
   background-color: #0dcaf0;
 }
+
 .mainDown .downMiddle #stateMap .leaflet-control-container .leaflet-control-search {
   border: unset;
   background: unset;
 }
+
 .mainDown .downMiddle #stateMap .leaflet-control-container .leaflet-control-search .search-input {
   border: unset;
   background-color: #2b5ca3;
@@ -181,29 +212,40 @@ li {
   padding: 0 0 0 10px;
   caret-color: #ffffff;
 }
+
 .mainDown .downMiddle #stateMap .leaflet-control-container .leaflet-control-search .search-input:focus-visible {
   outline: unset;
 }
-.mainDown .downMiddle #stateMap .leaflet-control-container .leaflet-control-search .search-input::-moz-placeholder {
+
+.mainDown .downMiddle #stateMap .leaflet-control-container .leaflet-control-search .search-input::-webkit-input-placeholder {
   color: #ffffff;
 }
+
 .mainDown .downMiddle #stateMap .leaflet-control-container .leaflet-control-search .search-input:-ms-input-placeholder {
   color: #ffffff;
 }
+
+.mainDown .downMiddle #stateMap .leaflet-control-container .leaflet-control-search .search-input::-ms-input-placeholder {
+  color: #ffffff;
+}
+
 .mainDown .downMiddle #stateMap .leaflet-control-container .leaflet-control-search .search-input::placeholder {
   color: #ffffff;
 }
+
 .mainDown .downMiddle #stateMap .leaflet-control-container .leaflet-control-search .search-button {
   background: url("../img/s_ico8.png") no-repeat 12px 11px rgba(43, 92, 163, 0.7);
   border-radius: 50%;
   width: 50px;
   height: 50px;
 }
+
 .mainDown .downMiddle #stateMap .leaflet-control-container .search-exp {
   background-color: #2b5ca3;
   border: unset;
   border-radius: 25px;
 }
+
 .mainDown .downMiddle #stateMap .carInfoBtn {
   z-index: 500;
   position: absolute;
@@ -216,88 +258,114 @@ li {
   background-color: rgba(43, 92, 163, 0.7);
   border: unset;
 }
+
 .mainDown .downBoard {
   background-color: rgba(0, 0, 0, 0.3);
   margin-bottom: 1rem;
 }
+
 .mainDown .downBoard .boardTitle {
   border-bottom: 1px solid #0dcaf0;
   padding: 15px 25px;
 }
+
 .mainDown .downBoard .boardTitle .title {
   padding-left: 5px;
   line-height: 20px;
   font-size: 1.2rem;
 }
+
 .mainDown .downBoard .boardContent {
   padding: 15px 25px;
 }
+
 .mainDown .downBoard .boardContent .boardItem {
   margin-bottom: 1rem;
 }
+
 .mainDown .downBoard .boardContent .boardItem .titleAndCount {
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding-bottom: 10px;
 }
+
 .mainDown .downBoard .boardContent .boardItem .titleAndCount .normalCount {
   color: #1eb6fe;
 }
+
 .mainDown .downBoard .boardContent .boardItem .titleAndCount .snapCount {
   color: #ffd220;
 }
+
 .mainDown .downBoard .boardContent .boardItem .titleAndCount .abnormalCount {
   color: #ff0e0d;
 }
+
 .mainDown .downBoard .boardContent .bar {
   background-color: rgba(255, 255, 255, 0.5);
   height: 10px;
   width: 100%;
 }
+
 .mainDown .downBoard .boardContent .bar span {
   display: block;
   height: 10px;
 }
+
 .mainDown .downBoard .boardContent .count {
   color: #0dcaf0;
   padding-right: 5px;
 }
+
 .mainDown .downBoard .boardContent .onTheWay {
   color: #ffd220;
 }
+
 .mainDown .downBoard .boardContent .onTheWay .circle {
   border: 3px solid #ffd220;
 }
+
 .mainDown .downBoard .boardContent .numOfTrip {
   color: #32ffc7;
 }
+
 .mainDown .downBoard .boardContent .numOfTrip .circle {
   border: 3px solid #32ffc7;
 }
+
 .mainDown .downBoard .boardContent .orderToday {
   color: #1eb6fe;
 }
+
 .mainDown .downBoard .boardContent .orderToday .circle {
   border: 3px solid #1eb6fe;
 }
+
 .mainDown .downBoard .boardContent .circle {
   border-radius: 50%;
   padding: 50%;
   position: relative;
 }
+
 .mainDown .downBoard .boardContent .circle span {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   font-size: 1.2rem;
 }
+
 .mainDown .downBoard .boardContent .text {
   margin-left: 9px;
   margin-top: 10px;
 }
+
 .mainDown .downBoard .boardContent .StateBox .StateTitle {
   border-bottom: 1px dashed #404040;
 }
+
 .mainDown .downBoard .boardContent .StateBox .StateTitle .titleItem {
   width: 33%;
   height: 37px;
@@ -306,69 +374,92 @@ li {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .mainDown .downBoard .boardContent .StateBox .StateTitle .titleItem:nth-child(1) {
   width: 38%;
 }
+
 .mainDown .downBoard .boardContent .StateBox .StateTitle .titleItem:nth-child(2) {
   width: 28%;
 }
+
 .mainDown .downBoard .boardContent .StateBox .StateTitle .titleItem:nth-child(3) {
   width: 34%;
 }
+
 .mainDown .downBoard .boardContent .StateBox #rowCarousel {
   height: 228px;
   overflow: hidden;
 }
+
 .mainDown .downBoard .boardContent .StateBox #rowCarousel .carouselUl {
   margin: 0;
   padding: 0;
 }
+
 .mainDown .downBoard .boardContent .StateBox #rowCarousel .carouselUl .rowInner {
   border-bottom: 1px dashed #404040;
 }
+
 .mainDown .downBoard .boardContent .StateBox #rowCarousel .carouselUl .rowInner .rowItem {
   width: 33%;
   overflow: hidden;
   text-overflow: ellipsis;
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   white-space: nowrap;
 }
+
 .mainDown .downBoard .boardContent .StateBox #rowCarousel .carouselUl .rowInner .rowItem:nth-child(1) {
   width: 38%;
 }
+
 .mainDown .downBoard .boardContent .StateBox #rowCarousel .carouselUl .rowInner .rowItem:nth-child(2) {
   width: 28%;
 }
+
 .mainDown .downBoard .boardContent .StateBox #rowCarousel .carouselUl .rowInner .rowItem:nth-child(3) {
   width: 34%;
 }
+
 .mainDown .downBoard .boardContent .StateBox #rowCarousel .carouselUl .rowInner .percent {
   width: 100%;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .mainDown .downBoard .boardContent .StateBox #rowCarousel .carouselUl .rowInner .percent .percentBar {
   margin-right: 7px;
 }
+
 .mainDown .downBoard .total {
   color: #0dcaf0;
 }
+
 .mainDown .downBoard .total .totalNum {
   font-size: 3.5rem;
   font-weight: bold;
 }
+
 .mainDown .downBoard .total .totalUnit {
   font-size: 1.2rem;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   padding: 15px 10px;
 }
+
 .mainDown .middleDownBoard .boardTitle {
   padding: 15px 25px;
 }
+
 .mainDown .middleDownBoard .boardTitle .title {
   padding-left: 5px;
   font-size: 20px;
   line-height: 20px;
 }
+
 .mainDown .middleDownBoard .boardTitle .title #currentMonth {
   font-size: 1rem;
 }
@@ -393,9 +484,11 @@ li {
   left: 50%;
   z-index: 9999;
   border-radius: 8px;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   display: none;
 }
+
 .summary .summaryClose {
   display: block;
   width: 44px;
@@ -405,54 +498,70 @@ li {
   position: absolute;
   top: -22px;
   right: -22px;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   display: none;
 }
+
 .summary .summaryClose:hover {
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
+
 .summary .summaryBox {
   height: 100%;
 }
+
 .summary .summaryBox .top {
   height: 45%;
 }
+
 .summary .summaryBox .top #driversChart {
   width: 33.3%;
   height: 100%;
 }
+
 .summary .summaryBox .top #carsChart {
   width: 33.4%;
 }
+
 .summary .summaryBox .top #sendsChart {
   width: 33.3%;
 }
+
 .summary .summaryBox .top .highcharts-data-labels .highcharts-data-label-color-0 .nowork {
   color: #061f3e !important;
   fill: #061f3e !important;
 }
+
 .summary .summaryBox .todaySendNum,
 .summary .summaryBox .monthSendTotal {
   color: #1eb6fe;
   font-size: 1.5rem;
   text-align: center;
 }
+
 .summary .summaryBox .todaySendNum {
   width: 35%;
 }
+
 .summary .summaryBox .monthSendTotal {
   width: 65%;
 }
+
 .summary .summaryBox .bottom {
   height: 45%;
 }
+
 .summary .summaryBox .bottom #todaySendChart,
 .summary .summaryBox .bottom #monthSendChart {
   text-align: -webkit-center;
 }
+
 .summary .summaryBox .bottom #todaySendChart {
   width: 35%;
 }
+
 .summary .summaryBox .bottom #monthSendChart {
   width: 65%;
 }
@@ -466,9 +575,11 @@ li {
   left: 50%;
   z-index: 9999;
   border-radius: 8px;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   display: none;
 }
+
 .carInfo .carClose {
   display: block;
   width: 44px;
@@ -478,18 +589,24 @@ li {
   position: absolute;
   top: -22px;
   right: -22px;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   display: none;
 }
+
 .carInfo .carClose:hover {
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
+
 .carInfo .infoBox {
   height: 100%;
 }
+
 .carInfo .infoBox .infoTop {
   height: 15.4%;
 }
+
 .carInfo .infoBox .infoTop .infoTit {
   height: 40%;
   text-align: center;
@@ -497,36 +614,43 @@ li {
   top: 30%;
   color: #1eb6fe;
 }
+
 .carInfo .infoBox .infoMain {
   height: 76%;
   width: 90%;
   margin: 0 auto;
 }
+
 .carInfo .infoBox .infoMain .infoLeft {
   width: 22.4%;
   height: 100%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding-top: 54px;
   padding-right: 10px;
   position: relative;
   border-right: 1px solid #13284d;
 }
+
 .carInfo .infoBox .infoMain .infoLeft .topSearch {
   width: 80%;
   height: 36px;
   position: absolute;
   top: 0;
   left: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0 18px;
   background: rgba(0, 222, 255, 0.2);
   border-radius: 18px;
 }
+
 .carInfo .infoBox .infoMain .infoLeft .topSearch form {
   height: 20px;
   padding: 8px 10px 8px 30px;
   position: relative;
 }
+
 .carInfo .infoBox .infoMain .infoLeft .topSearch button {
   display: block;
   width: 20px;
@@ -538,6 +662,7 @@ li {
   left: 0;
   border: unset;
 }
+
 .carInfo .infoBox .infoMain .infoLeft .topSearch input {
   display: block;
   width: 100%;
@@ -547,21 +672,31 @@ li {
   caret-color: #00ddfe;
   border: unset;
 }
-.carInfo .infoBox .infoMain .infoLeft .topSearch input::-moz-placeholder {
+
+.carInfo .infoBox .infoMain .infoLeft .topSearch input::-webkit-input-placeholder {
   color: #00ddfe;
 }
+
 .carInfo .infoBox .infoMain .infoLeft .topSearch input:-ms-input-placeholder {
   color: #00ddfe;
 }
+
+.carInfo .infoBox .infoMain .infoLeft .topSearch input::-ms-input-placeholder {
+  color: #00ddfe;
+}
+
 .carInfo .infoBox .infoMain .infoLeft .topSearch input::placeholder {
   color: #00ddfe;
 }
+
 .carInfo .infoBox .infoMain .infoLeft .carState {
   height: 100%;
   padding-top: 36px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   position: relative;
 }
+
 .carInfo .infoBox .infoMain .infoLeft .carState .carStateTitle {
   width: 80%;
   height: 35px;
@@ -570,9 +705,11 @@ li {
   position: absolute;
   top: 0;
   left: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0 8px;
 }
+
 .carInfo .infoBox .infoMain .infoLeft .carState .carStateTitle span {
   width: 50%;
   height: 35px;
@@ -580,22 +717,27 @@ li {
   text-overflow: ellipsis;
   color: #808080;
 }
+
 .carInfo .infoBox .infoMain .infoLeft .carState .carStateTitle span:last-child {
   text-align: right;
 }
+
 .carInfo .infoBox .infoMain .infoLeft .carState .stateUl {
   height: 100%;
   overflow: hidden;
   padding: 0;
 }
+
 .carInfo .infoBox .infoMain .infoLeft .carState .stateUl li {
   width: 80%;
   height: 35px;
   line-height: 35px;
   border-bottom: 1px dashed #404040;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0 8px;
 }
+
 .carInfo .infoBox .infoMain .infoLeft .carState .stateUl li p,
 .carInfo .infoBox .infoMain .infoLeft .carState .stateUl li span {
   float: left;
@@ -605,48 +747,62 @@ li {
   text-overflow: ellipsis;
   color: #00deff;
 }
+
 .carInfo .infoBox .infoMain .infoLeft .carState .stateUl li p {
   width: 70%;
 }
+
 .carInfo .infoBox .infoMain .infoLeft .carState .stateUl li span {
   width: 30%;
   text-align: right;
 }
+
 .carInfo .infoBox .infoMain .infoLeft .carState .stateUl li span.work {
   color: #32ffc7;
 }
+
 .carInfo .infoBox .infoMain .infoLeft .carState .stateUl li span.nowork {
   color: #ffd220;
 }
+
 .carInfo .infoBox .infoMain .infoRight {
   width: 77.6%;
   height: 100%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-left: 1px solid #030303;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp {
   width: 94%;
   margin: 0 auto;
   height: 100%;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .carIntro {
   height: 30%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-bottom: 1px solid #13284d;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .carIntro .introBox {
   width: 72%;
   margin-left: 5%;
   background: url(../img/infoBg.png) no-repeat;
   background-size: 100% 100%;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .carIntro .introBox .carImg {
   width: 12%;
   height: 100%;
   margin: 0 8%;
   position: relative;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .carIntro .introBox .carImg img {
   max-width: 100%;
   max-height: 64%;
@@ -654,29 +810,40 @@ li {
   top: 50%;
   left: 50%;
   border-radius: 6px;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .carIntro .introBox .carText {
   width: 64%;
   position: relative;
   top: 50%;
-  transform: translateY(-50%);
-  align-items: center;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .carIntro .introBox .carText .info {
   height: 28px;
   line-height: 28px;
   overflow: hidden;
   text-overflow: ellipsis;
   color: #ffffff;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0 10px;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .carIntro .driver {
   width: 18%;
   padding-top: 10px;
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .carIntro .driver .photo {
   width: 100px;
   height: 100px;
@@ -684,28 +851,35 @@ li {
   border-radius: 100%;
   overflow: hidden;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .carIntro .driver .photo img {
   width: 100%;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .carIntro .driver p {
   text-align: center;
   color: #00deff;
   font-size: 16px;
   line-height: 40px;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable {
   height: 70%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding-top: 40px;
   border-top: 1px solid #030303;
   position: relative;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .work {
   color: #32ffc7;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .standard {
   color: #1dd0fd;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .topTool {
   height: 28px;
   padding-top: 12px;
@@ -713,31 +887,39 @@ li {
   width: 100%;
   left: 0;
   top: 0;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .topTool .tableExplain {
   height: 14px;
   padding-top: 14px;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .topTool .tableExplain .itemExplain {
   height: 14px;
   margin-right: 40px;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .topTool .tableExplain .itemExplain span {
   float: left;
   width: 14px;
   height: 14px;
   margin-right: 6px;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .topTool .tableExplain .itemExplain p {
   float: left;
   color: #fff;
   line-height: 14px;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .topTool .topBtns {
   height: 22px;
   padding-top: 4px;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .topTool .topBtns a {
   float: left;
   height: 26px;
@@ -750,19 +932,25 @@ li {
   font-size: 12px;
   text-decoration: unset;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .topTool .topBtns a:hover {
   background: #00deff;
   color: #ffffff;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .tiemWp {
   height: 100%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 30px 20% 0 0;
   position: relative;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .tiemWp .totalTable {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   height: 100%;
   width: 20%;
   position: absolute;
@@ -770,6 +958,7 @@ li {
   right: 0;
   padding-top: 40px;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .tiemWp .totalTable .totalTit {
   height: 20px;
   width: 100%;
@@ -777,6 +966,7 @@ li {
   top: 16px;
   right: 0;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .tiemWp .totalTable .totalTit span {
   float: left;
   width: 50%;
@@ -786,17 +976,25 @@ li {
   font-size: 12px;
   line-height: 20px;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .tiemWp .totalTable .totalData {
   height: 100%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding-bottom: 1px;
+  display: -ms-grid;
   display: grid;
-  align-content: space-between;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .tiemWp .totalTable .totalData .totalItem {
   color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .carInfo .infoBox .infoMain .infoRight .rightWp .timetable .tiemWp .totalTable .totalData .totalItem span {
   width: 50%;
   text-align: center;
@@ -831,6 +1029,7 @@ li {
     padding-bottom: 0.5rem;
   }
 }
+
 @media screen and (max-width: 1679px) and (min-width: 1440px) {
   .selfFontSize {
     font-size: 1rem;
@@ -856,6 +1055,7 @@ li {
     padding-bottom: 0.25rem;
   }
 }
+
 @media screen and (max-width: 1439px) and (min-width: 1366px) {
   .selfFontSize {
     font-size: 0.75rem;
@@ -881,6 +1081,7 @@ li {
     padding-bottom: 0.25rem;
   }
 }
+
 @media screen and (max-width: 1365px) {
   .selfFontSize {
     font-size: 0.5rem;
@@ -909,4 +1110,5 @@ li {
   .mainDown .downBoard .boardContent .boardItem .titleAndCount {
     padding-bottom: 0.25rem;
   }
-}/*# sourceMappingURL=afterLogin.css.map */
+}
+/*# sourceMappingURL=afterLogin.css.map */

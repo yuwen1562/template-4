@@ -10,22 +10,27 @@ body {
 }
 
 .loginContainer {
+  position: relative;
   height: 100%;
   z-index: 2;
 }
+
 .loginContainer .boardLogin {
   width: 16.8%;
   min-width: 200px;
   margin: 0 auto;
   position: relative;
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
+
 .loginContainer .boardLogin .loginTitle {
   font-size: 1.8rem;
   text-align: center;
   color: #0dcaf0;
 }
+
 .loginContainer .boardLogin .inputLeft {
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
@@ -33,9 +38,11 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
   border: none;
 }
+
 .loginContainer .boardLogin .inputLeft .loginIcon {
   color: #ffffff;
 }
+
 .loginContainer .boardLogin .inputRight {
   background-color: rgba(255, 255, 255, 0.1);
   border: none;
@@ -45,21 +52,32 @@ body {
   padding: 0.7rem 0.75rem;
   caret-color: #ffffff;
 }
-.loginContainer .boardLogin .inputRight::-moz-placeholder {
+
+.loginContainer .boardLogin .inputRight::-webkit-input-placeholder {
   color: #ffffff;
   opacity: 1;
 }
+
 .loginContainer .boardLogin .inputRight:-ms-input-placeholder {
   color: #ffffff;
   opacity: 1;
 }
+
+.loginContainer .boardLogin .inputRight::-ms-input-placeholder {
+  color: #ffffff;
+  opacity: 1;
+}
+
 .loginContainer .boardLogin .inputRight::placeholder {
   color: #ffffff;
   opacity: 1;
 }
+
 .loginContainer .boardLogin .inputRight:focus {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
+
 .loginContainer .boardLogin .loginBtn {
   color: #ffffff;
   width: 100%;
@@ -74,4 +92,5 @@ body {
   height: 100%;
   z-index: 1;
   opacity: 0.5;
-}/*# sourceMappingURL=index.css.map */
+}
+/*# sourceMappingURL=index.css.map */
